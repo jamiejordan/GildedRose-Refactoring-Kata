@@ -1,7 +1,6 @@
 ﻿using Xunit;
 using System.Collections.Generic;
 using GildedRose;
-using NUnit.Framework;
 using Assert = Xunit.Assert;
 
 namespace GildedRoseTests
@@ -33,12 +32,13 @@ namespace GildedRoseTests
         [Fact]
         public void UpdateQuality_ShouldReduceQualityByTwo_WhenSellInIsZero()
         {
-            var items = new List<Item> { new Item { Name = "some item", SellIn = 0, Quality = 10 } };
+            const int quality = 10;
+            var items = new List<Item> { new Item { Name = "some item", SellIn = 0, Quality = quality } };
             var app = new GildedRose.GildedRose(items);
             
             app.UpdateQuality();
             
-            Assert.Equal(8, items[0].Quality);
+            Assert.Equal(quality-2, items[0].Quality);
         }
     }
 }
