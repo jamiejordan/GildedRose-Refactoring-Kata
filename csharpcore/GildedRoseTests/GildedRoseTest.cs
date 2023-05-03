@@ -1,6 +1,5 @@
 ﻿using Xunit;
 using System.Collections.Generic;
-using System.IO;
 using GildedRose;
 using Assert = Xunit.Assert;
 
@@ -24,9 +23,9 @@ namespace GildedRoseTests
         {
             var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 50 } };
             var app = new GildedRose.GildedRose(items);
-            
+
             app.UpdateQuality();
-            
+
             Assert.Equal(50, items[0].Quality);
         }
 
@@ -36,10 +35,10 @@ namespace GildedRoseTests
             const int quality = 10;
             var items = new List<Item> { new Item { Name = "some item", SellIn = 0, Quality = quality } };
             var app = new GildedRose.GildedRose(items);
-            
+
             app.UpdateQuality();
-            
-            Assert.Equal(quality-2, items[0].Quality);
+
+            Assert.Equal(quality - 2, items[0].Quality);
         }
 
         [Fact]
@@ -48,10 +47,10 @@ namespace GildedRoseTests
             const int quality = 10;
             var items = new List<Item> { new Item { Name = "some item", SellIn = 1, Quality = quality } };
             var app = new GildedRose.GildedRose(items);
-            
+
             app.UpdateQuality();
-            
-            Assert.Equal(quality-1, items[0].Quality);
+
+            Assert.Equal(quality - 1, items[0].Quality);
         }
     }
 }
