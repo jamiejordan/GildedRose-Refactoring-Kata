@@ -15,7 +15,7 @@ public class GildedRose
     {
         foreach (var item in Items)
         {
-            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+            if (ItemMayIncreaseInValue(item))
             {
                 if (item.Quality > 0)
                 {
@@ -88,5 +88,10 @@ public class GildedRose
                 }
             }
         }
+    }
+
+    private static bool ItemMayIncreaseInValue(Item item)
+    {
+        return item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert";
     }
 }
