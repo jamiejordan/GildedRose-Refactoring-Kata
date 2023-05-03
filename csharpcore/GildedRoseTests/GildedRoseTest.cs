@@ -8,6 +8,7 @@ namespace GildedRoseTests
     public class GildedRoseTest
     {
         private const string LegendaryItemName = "Sulfuras, Hand of Ragnaros";
+        private const string BackStagePassName = "Backstage passes to a TAFKAL80ETC concert";
         private const int LegendaryQuality = 80;
 
         [Fact]
@@ -93,6 +94,20 @@ namespace GildedRoseTests
             app.UpdateQuality();
 
             Assert.Equal(LegendaryQuality, items[0].Quality);
+        }
+
+        [Fact]
+        public void UpdateQuality_ShouldIncreaseQualityByTwo_WhenItemIsBackstagePassAndSellInTenOrLess()
+        {
+            const int sellInTenOrLess = 9;
+            const int quality = 1;
+            var items = new List<Item>
+                { new Item { Name = BackStagePassName, SellIn = sellInTenOrLess, Quality = quality } };
+            var app = new GildedRose.GildedRose(items);
+
+            app.UpdateQuality();
+
+            Assert.Equal(quality + 2, items[0].Quality);
         }
     }
 }
