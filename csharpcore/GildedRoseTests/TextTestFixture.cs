@@ -4,7 +4,7 @@ using GildedRose;
 
 namespace GildedRoseTests;
 
-public static class TexttestFixture
+public static class TextTestFixture
 {
     public static void Main(string[] args)
     {
