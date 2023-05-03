@@ -15,8 +15,7 @@ public class GildedRose
     {
         foreach (var item in Items)
         {
-            if (item.Name == "Sulfuras, Hand of Ragnaros")
-                continue;
+            if (IsLegendary(item)) continue;
             if (ItemMayIncreaseInValue(item))
             {
                 if (item.Quality > 0)
@@ -75,6 +74,11 @@ public class GildedRose
                 }
             }
         }
+    }
+
+    private static bool IsLegendary(Item item)
+    {
+        return item.Name == "Sulfuras, Hand of Ragnaros";
     }
 
     private static void DecrementQuality(Item item)
