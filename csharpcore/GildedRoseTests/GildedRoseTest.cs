@@ -64,5 +64,18 @@ namespace GildedRoseTests
 
             Assert.Equal(quality + 1, items[0].Quality);
         }
+
+        [Fact]
+        public void UpdateQuality_ShouldNotChangeInQuality_WhenItemIsLegendary()
+        {
+            const int legendaryQuality = 80;
+            var items = new List<Item>
+                { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = legendaryQuality } };
+            var app = new GildedRose.GildedRose(items);
+
+            app.UpdateQuality();
+
+            Assert.Equal(legendaryQuality, items[0].Quality);
+        }
     }
 }
