@@ -9,10 +9,12 @@ namespace GildedRoseTests
         [Fact]
         public void UpdateQuality_ShouldNotReduceQualityOfExpiredItem()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            GildedRose.GildedRose app = new GildedRose.GildedRose(Items);
+            var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
+            var app = new GildedRose.GildedRose(items);
+
             app.UpdateQuality();
-            Assert.Equal(0, Items[0].Quality);
+
+            Assert.Equal(0, items[0].Quality);
         }
     }
 }
