@@ -7,6 +7,9 @@ namespace GildedRoseTests
 {
     public class GildedRoseTest
     {
+        private const string LegendaryItemName = "Sulfuras, Hand of Ragnaros";
+        private const int LegendaryQuality = 80;
+
         [Fact]
         public void UpdateQuality_ShouldNotReduceQualityOfExpiredItem()
         {
@@ -68,29 +71,28 @@ namespace GildedRoseTests
         [Fact]
         public void UpdateQuality_ShouldNotChangeInQuality_WhenItemIsLegendary()
         {
-            const int legendaryQuality = 80;
             var items = new List<Item>
-                { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = legendaryQuality } };
+                { new Item { Name = LegendaryItemName, SellIn = 10, Quality = LegendaryQuality } };
             var app = new GildedRose.GildedRose(items);
 
             app.UpdateQuality();
 
-            Assert.Equal(legendaryQuality, items[0].Quality);
+            Assert.Equal(LegendaryQuality, items[0].Quality);
         }
 
-        
+
         [Fact]
         public void UpdateQuality_ShouldNotChangeInSellIn_WhenItemIsLegendary()
         {
-            const int legendaryQuality = 80;
             const int sellIn = 10;
+
             var items = new List<Item>
-                { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = sellIn, Quality = legendaryQuality } };
+                { new Item { Name = LegendaryItemName, SellIn = sellIn, Quality = LegendaryQuality } };
             var app = new GildedRose.GildedRose(items);
 
             app.UpdateQuality();
 
-            Assert.Equal(legendaryQuality, items[0].Quality);
+            Assert.Equal(LegendaryQuality, items[0].Quality);
         }
     }
 }
