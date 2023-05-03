@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
-        <StartupObject>GildedRoseTests.TexttestFixture</StartupObject>
+        <StartupObject>GildedRoseTests.TextTestFixture</StartupObject>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\GildedRose\GildedRose.csproj" />
+        <ProjectReference Include="..\GildedRoseKata\GildedRoseKata.csproj" />
     </ItemGroup>
 
 </Project>

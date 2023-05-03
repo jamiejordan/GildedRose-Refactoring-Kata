@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GildedRose;
+using GildedRoseKata;
 
 namespace GildedRoseTests;
 
@@ -38,7 +38,7 @@ public static class TextTestFixture
             new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
         };
 
-        var app = new GildedRose.GildedRose(Items);
+        var app = new GildedRoseKata.GildedRose(Items);
 
         int days = 31;
         if (args.Length > 0)

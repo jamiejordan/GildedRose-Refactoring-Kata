@@ -1,6 +1,6 @@
 ﻿using Xunit;
 using System.Collections.Generic;
-using GildedRose;
+using GildedRoseKata;
 using Assert = Xunit.Assert;
 
 namespace GildedRoseTests;
@@ -16,7 +16,7 @@ public class GildedRoseTest
     public void UpdateQuality_ShouldNotReduceQualityOfExpiredItem()
     {
         var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
 
         app.UpdateQuality();
 
@@ -27,7 +27,7 @@ public class GildedRoseTest
     public void UpdateQuality_ShouldNotIncreaseQualityOfAgedBrieAboveFifty()
     {
         var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 50 } };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
 
         app.UpdateQuality();
 
@@ -39,7 +39,7 @@ public class GildedRoseTest
     {
         const int quality = 10;
         var items = new List<Item> { new Item { Name = "some item", SellIn = 0, Quality = quality } };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
 
         app.UpdateQuality();
 
@@ -51,7 +51,7 @@ public class GildedRoseTest
     {
         const int quality = 10;
         var items = new List<Item> { new Item { Name = "some item", SellIn = 1, Quality = quality } };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
 
         app.UpdateQuality();
 
@@ -63,7 +63,7 @@ public class GildedRoseTest
     {
         const int quality = 10;
         var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = quality } };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
 
         app.UpdateQuality();
 
@@ -75,7 +75,7 @@ public class GildedRoseTest
     {
         var items = new List<Item>
             { new Item { Name = LegendaryItemName, SellIn = 10, Quality = LegendaryQuality } };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
 
         app.UpdateQuality();
 
@@ -90,7 +90,7 @@ public class GildedRoseTest
 
         var items = new List<Item>
             { new Item { Name = LegendaryItemName, SellIn = sellIn, Quality = LegendaryQuality } };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
 
         app.UpdateQuality();
 
@@ -106,7 +106,7 @@ public class GildedRoseTest
     {
         var items = new List<Item>
             { new Item { Name = BackStagePassName, SellIn = sellInDays, Quality = PositiveQuality } };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
 
         app.UpdateQuality();
 
@@ -120,7 +120,7 @@ public class GildedRoseTest
         {
             new Item { Name = "Conjured spoon", SellIn = 10, Quality = PositiveQuality }
         };
-        var app = new GildedRose.GildedRose(items);
+        var app = new GildedRose(items);
             
         app.UpdateQuality();
             
