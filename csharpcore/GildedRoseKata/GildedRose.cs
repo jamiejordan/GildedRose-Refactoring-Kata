@@ -15,14 +15,13 @@ public class GildedRose
     {
         foreach (var item in Items)
         {
+            if (item.Name == "Sulfuras, Hand of Ragnaros")
+                continue;
             if (ItemMayIncreaseInValue(item))
             {
                 if (item.Quality > 0)
                 {
-                    if (item.Name != "Sulfuras, Hand of Ragnaros")
-                    {
-                        DecrementQuality(item);
-                    }
+                    DecrementQuality(item);
                 }
             }
             else
