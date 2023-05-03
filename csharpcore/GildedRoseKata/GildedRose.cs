@@ -21,14 +21,7 @@ public class GildedRose
                 {
                     if (item.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        if (item.Name.StartsWith("Conjured"))
-                        {
-                            item.Quality -= 2;
-                        }
-                        else
-                        {
-                            item.Quality -= 1;
-                        }
+                        DecrementQuality(item);
                     }
                 }
             }
@@ -87,6 +80,18 @@ public class GildedRose
                     item.Quality += 1;
                 }
             }
+        }
+    }
+
+    private static void DecrementQuality(Item item)
+    {
+        if (item.Name.StartsWith("Conjured"))
+        {
+            item.Quality -= 2;
+        }
+        else
+        {
+            item.Quality -= 1;
         }
     }
 
