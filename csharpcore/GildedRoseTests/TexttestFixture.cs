@@ -1,8 +1,6 @@
-﻿
-using GildedRoseKata;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using GildedRose;
 
 namespace GildedRoseTests
 {
@@ -40,7 +38,7 @@ namespace GildedRoseTests
                 new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new GildedRose(Items);
+            var app = new GildedRose.GildedRose(Items);
 
             int days = 31;
             if (args.Length > 0)

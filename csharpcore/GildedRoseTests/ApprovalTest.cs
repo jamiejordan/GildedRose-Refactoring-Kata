@@ -3,10 +3,9 @@ using System.IO;
 using System.Text;
 using ApprovalTests;
 using ApprovalTests.Reporters;
-using GildedRoseTests;
 using NUnit.Framework;
 
-namespace csharp
+namespace GildedRoseTests
 {
     [UseReporter(typeof(DiffReporter))]
     [TestFixture]
