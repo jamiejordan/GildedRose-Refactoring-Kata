@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRose
 {
     public class GildedRose
     {
         IList<Item> Items;
+
         public GildedRose(IList<Item> items)
         {
             Items = items;
@@ -20,7 +22,14 @@ namespace GildedRose
                     {
                         if (item.Name != "Sulfuras, Hand of Ragnaros")
                         {
-                            item.Quality = item.Quality - 1;
+                            if (item.Name.StartsWith("Conjured"))
+                            {
+                                item.Quality -= 2;
+                            }
+                            else
+                            {
+                                item.Quality = item.Quality - 1;
+                            }
                         }
                     }
                 }

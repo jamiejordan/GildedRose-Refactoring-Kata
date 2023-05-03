@@ -101,7 +101,8 @@ namespace GildedRoseTests
         [InlineData(10, 2)]
         [InlineData(5, 3)]
         [InlineData(0, -PositiveQuality)]
-        public void UpdateQuality_ShouldIncreaseQuality_WhenItemIsBackstagePassUntilSellInIsZero(int sellInDays, int qualityIncrease)
+        public void UpdateQuality_ShouldIncreaseQuality_WhenItemIsBackstagePassUntilSellInIsZero(int sellInDays,
+            int qualityIncrease)
         {
             var items = new List<Item>
                 { new Item { Name = BackStagePassName, SellIn = sellInDays, Quality = PositiveQuality } };
@@ -110,6 +111,20 @@ namespace GildedRoseTests
             app.UpdateQuality();
 
             Assert.Equal(PositiveQuality + qualityIncrease, items[0].Quality);
+        }
+
+        [Fact]
+        public void UpdateQuality_ShouldReduceQualityByTwo_WhenItemIsConjured()
+        {
+            var items = new List<Item>
+            {
+                new Item { Name = "Conjured spoon", SellIn = 10, Quality = PositiveQuality }
+            };
+            var app = new GildedRose.GildedRose(items);
+            
+            app.UpdateQuality();
+            
+            Assert.Equal(PositiveQuality - 2, items[0].Quality);
         }
     }
 }
