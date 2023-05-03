@@ -16,5 +16,16 @@ namespace GildedRoseTests
 
             Assert.Equal(0, items[0].Quality);
         }
+
+        [Fact]
+        public void UpdateQuality_ShouldNotIncreaseQualityOfAgedBrieAboveFifty()
+        {
+            var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 50 } };
+            var app = new GildedRose.GildedRose(items);
+            
+            app.UpdateQuality();
+            
+            Assert.Equal(50, items[0].Quality);
+        }
     }
 }
