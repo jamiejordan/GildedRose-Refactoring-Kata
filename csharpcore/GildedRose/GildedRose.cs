@@ -7,7 +7,7 @@ namespace GildedRose
         IList<Item> Items;
         public GildedRose(IList<Item> items)
         {
-            this.Items = items;
+            Items = items;
         }
 
         public void UpdateQuality()
